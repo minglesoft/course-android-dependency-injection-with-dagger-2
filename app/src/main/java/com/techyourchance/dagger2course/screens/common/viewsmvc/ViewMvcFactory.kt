@@ -13,11 +13,11 @@ class ViewMvcFactory @Inject constructor(
         private val imageLoaderProvider: Provider<ImageLoader>
 ) {
 
-    fun newQuestionsListViewMvc(parent: ViewGroup?): QuestionsListViewMvc {
-        return QuestionsListViewMvc(layoutInflaterProvider.get(), parent)
-    }
+  fun newQuestionsListViewMvc(parent: ViewGroup?): QuestionsListViewMvc {
+    return QuestionsListViewMvc(layoutInflaterProvider.get(), parent)
+  }
 
-    fun newQuestionDetailsViewMvc(parent: ViewGroup?): QuestionDetailsViewMvc {
-        return QuestionDetailsViewMvc(layoutInflaterProvider.get(), imageLoaderProvider.get(), parent)
-    }
+  fun newQuestionDetailsViewMvc(parent: ViewGroup?): QuestionDetailsViewMvc {
+    return QuestionDetailsViewMvc(layoutInflaterProvider.get(), imageLoaderProvider.get(), parent)
+  }
 }

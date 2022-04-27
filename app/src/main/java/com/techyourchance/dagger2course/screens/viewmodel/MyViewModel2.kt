@@ -13,9 +13,9 @@ import javax.inject.Inject
 class MyViewModel2 @Inject constructor(
         private val fetchQuestionsUseCase: FetchQuestionsUseCase,
         private val fetchQuestionDetailsUseCase: FetchQuestionDetailsUseCase
-): ViewModel() {
+) : ViewModel() {
 
-    private val _questions = MutableLiveData<List<Question>>()
-    val questions: LiveData<List<Question>> = _questions
+  private val _questions = MutableLiveData<List<Question>>()
+  val questions: LiveData<List<Question>> = _questions
 
 }

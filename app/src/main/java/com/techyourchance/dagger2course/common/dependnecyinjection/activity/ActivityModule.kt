@@ -16,19 +16,19 @@ import dagger.hilt.android.scopes.ActivityScoped
 @InstallIn(ActivityComponent::class)
 abstract class ActivityModule {
 
-    @ActivityScoped
-    @Binds
-    abstract fun screensNavigator(screensNavigatorImpl: ScreensNavigatorImpl): ScreensNavigator
+  @ActivityScoped
+  @Binds
+  abstract fun screensNavigator(screensNavigatorImpl: ScreensNavigatorImpl): ScreensNavigator
 
-    companion object {
-        @Provides
-        fun appCompatActivity(activity: Activity): AppCompatActivity = activity as AppCompatActivity
+  companion object {
+    @Provides
+    fun appCompatActivity(activity: Activity): AppCompatActivity = activity as AppCompatActivity
 
-        @Provides
-        fun layoutInflater(activity: Activity) = LayoutInflater.from(activity)
+    @Provides
+    fun layoutInflater(activity: Activity) = LayoutInflater.from(activity)
 
-        @Provides
-        fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
-    }
+    @Provides
+    fun fragmentManager(activity: AppCompatActivity) = activity.supportFragmentManager
+  }
 
 }

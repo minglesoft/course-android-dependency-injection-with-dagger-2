@@ -1,6 +1,10 @@
 package com.techyourchance.dagger2course.screens.viewmodel
 
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.SavedStateHandle
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.techyourchance.dagger2course.questions.FetchQuestionDetailsUseCase
 import com.techyourchance.dagger2course.questions.FetchQuestionsUseCase
 import com.techyourchance.dagger2course.questions.Question
@@ -14,20 +18,20 @@ class MyViewModel @Inject constructor(
         private val fetchQuestionsUseCase: FetchQuestionsUseCase,
         private val fetchQuestionDetailsUseCase: FetchQuestionDetailsUseCase,
         private val savedStateHandle: SavedStateHandle
-): ViewModel() {
+) : ViewModel() {
 
-    private var _questions: MutableLiveData<List<Question>> = savedStateHandle.getLiveData("questions")
-    val questions: LiveData<List<Question>> get() = _questions
+  private var _questions: MutableLiveData<List<Question>> = savedStateHandle.getLiveData("questions")
+  val questions: LiveData<List<Question>> get() = _questions
 
-    init {
-        viewModelScope.launch {
-            delay(5000)
-            val result = fetchQuestionsUseCase.fetchLatestQuestions()
-            if (result is FetchQuestionsUseCase.Result.Success) {
-                _questions.value = result.questions
-            } else {
-                throw RuntimeException("fetch failed")
-            }
-        }
+  init {
+    viewModelScope.launch {
+      delay(5000)
+      val result = fetchQuestionsUseCase.fetchLatestQuestions()
+      if (result is FetchQuestionsUseCase.Result.Success) {
+        _questions.value = result.questions
+      } else {
+        throw RuntimeException("fetch failed")
+      }
     }
+  }
 }

@@ -5,17 +5,17 @@ import com.techyourchance.dagger2course.screens.questiondetails.QuestionDetailsA
 import com.techyourchance.dagger2course.screens.viewmodel.ViewModelActivity
 import javax.inject.Inject
 
-class ScreensNavigatorImpl @Inject constructor(private val activity: AppCompatActivity): ScreensNavigator {
+class ScreensNavigatorImpl @Inject constructor(private val activity: AppCompatActivity) : ScreensNavigator {
 
-    override fun navigateBack() {
-        activity.onBackPressed()
-    }
+  override fun navigateBack() {
+    activity.onBackPressed()
+  }
 
-    override fun toQuestionDetails(questionId: String) {
-        QuestionDetailsActivity.start(activity, questionId)
-    }
+  override fun toQuestionDetails(questionId: String) {
+    QuestionDetailsActivity.start(activity, questionId)
+  }
 
-    override fun toViewModel() {
-        ViewModelActivity.start(activity)
-    }
+  override fun toViewModel() {
+    ViewModelActivity.start(activity)
+  }
 }

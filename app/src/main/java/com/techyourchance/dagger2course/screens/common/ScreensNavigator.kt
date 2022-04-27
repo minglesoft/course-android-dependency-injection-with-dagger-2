@@ -2,8 +2,8 @@ package com.techyourchance.dagger2course.screens.common
 
 interface ScreensNavigator {
 
-    fun navigateBack()
+  fun navigateBack()
 
-    fun toQuestionDetails(questionId: String)
-    fun toViewModel()
+  fun toQuestionDetails(questionId: String)
+  fun toViewModel()
 }

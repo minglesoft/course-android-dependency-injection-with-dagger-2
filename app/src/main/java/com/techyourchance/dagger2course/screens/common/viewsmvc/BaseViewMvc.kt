@@ -13,23 +13,23 @@ open class BaseViewMvc<LISTENER_TYPE>(
         @LayoutRes private val layoutId: Int
 ) {
 
-    val rootView: View = layoutInflater.inflate(layoutId, parent, false)
+  val rootView: View = layoutInflater.inflate(layoutId, parent, false)
 
-    protected val context: Context get() = rootView.context
+  protected val context: Context get() = rootView.context
 
-    protected val listeners = HashSet<LISTENER_TYPE>()
+  protected val listeners = HashSet<LISTENER_TYPE>()
 
 
-    fun registerListener(listener: LISTENER_TYPE) {
-        listeners.add(listener)
-    }
+  fun registerListener(listener: LISTENER_TYPE) {
+    listeners.add(listener)
+  }
 
-    fun unregisterListener(listener: LISTENER_TYPE) {
-        listeners.remove(listener)
-    }
+  fun unregisterListener(listener: LISTENER_TYPE) {
+    listeners.remove(listener)
+  }
 
-    protected fun <T : View?> findViewById(@IdRes id: Int): T {
-        return rootView.findViewById<T>(id)
-    }
+  protected fun <T : View?> findViewById(@IdRes id: Int): T {
+    return rootView.findViewById<T>(id)
+  }
 
 }
